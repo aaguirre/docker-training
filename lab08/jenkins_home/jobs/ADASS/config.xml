@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 1 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+    <com.cloudbees.jenkins.plugins.BitBucketTrigger plugin="bitbucket@1.1.5">
+      <spec></spec>
+    </com.cloudbees.jenkins.plugins.BitBucketTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>export ANSIBLE_HOST_KEY_CHECKING=False;
+cd $WORKSPACE &amp;&amp; \
+ansible-playbook -i envs/development/hosts play.yml --tags=&quot;build,deploy&quot;  -vvv</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

@@ -1,0 +1,5 @@
+stage: development
+release: 1.0
+docker_folder: ./docker
+
+

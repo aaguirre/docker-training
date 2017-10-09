@@ -1,0 +1,64 @@
+version: '2'
+
+services:
+
+  app:
+    image: aaguirre/app:latest
+    build:
+      context: ../lab02/ 
+      args:
+       - STAGE=development
+       - RELEASE=1.0
+    container_name: app
+    links:
+      - redis:redis
+    networks:
+      - default
+    mem_limit: 100m
+    restart: always
+    ports: 
+      - "8080:8080"
+    volumes:
+      - ./puppy.jpg:/var/puppy.jpg
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+    mem_limit: 20m
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    command: ["nginx", "-g", "daemon off;"]
+    links:
+      - app:app
+    ports:
+      - "80:80"
+    networks:
+      - default
+    mem_limit: 10mb
+    restart: always
+    volumes: 
+     - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+  portainer:
+    image: portainer/portainer
+    container_name: "portainer-app"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "9000:9000"
+    networks:
+      - default
+    restart: always
+
+
+networks:
+  default:
+    driver: bridge
+

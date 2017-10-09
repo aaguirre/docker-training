@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+
+  jenkins:
+    image: aaguirre/jenkins:latest
+    build:
+      context: ./ 
+    container_name: jenkins
+    networks:
+      - default
+    restart: always
+    ports: 
+      - "9080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_home/jobs/ADASS:/var/jenkins_home/jobs/ADASS
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  default:
+    driver: bridge
+

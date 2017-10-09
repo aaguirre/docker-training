@@ -1,0 +1,17 @@
+- name: Reset environment
+  command: docker-compose down
+  environment:
+      STAGE: "{{ stage }}"
+      RELEASE: "{{ release }}"
+  args:
+    chdir: "{{ docker_folder }}"
+
+
+- name: Deploy containers
+  command: docker-compose up -d
+  environment:
+      STAGE: "{{ stage }}"
+      RELEASE: "{{ release }}"
+  args:
+    chdir: "{{ docker_folder }}"
+  

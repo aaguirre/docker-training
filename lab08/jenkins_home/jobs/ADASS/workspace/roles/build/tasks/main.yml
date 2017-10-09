@@ -1,0 +1,9 @@
+- name: Build applications images
+  command: docker-compose build --no-cache
+  environment:
+      STAGE: "{{ stage }}"
+      RELEASE: "{{ release }}"
+
+  args:
+    chdir: "{{ docker_folder }}"
+  

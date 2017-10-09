@@ -1,0 +1,6 @@
+- name: ADASS deployment
+  hosts: all
+  gather_facts: no
+  roles:
+    - { role: build, tags: ['build'] }
+    - { role: deploy, tags: ['deploy'] }
