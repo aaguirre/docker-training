@@ -1,2 +1,5 @@
-# docker-training
-Docker training at ADASS 2018 conference
+# Docker Training at ADASS Conference
+## Deploy and manage your software infrastructure with Docker
+
+Instroduction... TBC
+
