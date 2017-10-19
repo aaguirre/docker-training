@@ -62,4 +62,9 @@ Open browser at:
 
 [http://virtual-machine-ip:8080](http://virtual-machine-ip:8080)
 
+Remove NGINX container
+```
+docker rm -f my-nginx
+```
+
 
