@@ -84,13 +84,13 @@ docker service ls
 
 Create Service
 ```bash
-docker service create --name nginx -p 82  nginx
+docker service create --name nginx -p 80  nginx
 ```
 
 Service status
 
 ```bash
-docekr service ps nginx
+docker service ps nginx
 ```
 
 Service Logs
@@ -101,6 +101,10 @@ docker service logs -f nginx
 Scale a service
 ```bash
 docker service scale nginx=4
+```
+Remove a service
+```bash
+docker service rm nginx
 ```
 
 Deploy a stack of service using docker-compose
@@ -123,6 +127,11 @@ http://machine-ip:80
 Docker stack ls, ps, etc.
 
 ```bash
-docekr stack ls
+docker stack ls
+```
+
+Remove Stack
+```bash
+docker stack rm adass
 ```
 
