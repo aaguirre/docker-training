@@ -42,7 +42,7 @@ services:
     mem_limit: 10mb
     restart: always
     volumes: 
-     - /Users/aaguirre/Projects/ADASS/tutorial/lab05/nginx.conf:/etc/nginx/conf.d/default.conf
+     - /root/docker-training/lab05/nginx.conf:/etc/nginx/conf.d/default.conf
 
 networks:
   default:

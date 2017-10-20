@@ -1,0 +1,200 @@
+Started by user [8mha:////4ALD18H7akOtUgmSgrs5S/1VrdxEYk2hZEvY2lOBKdj0AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/jenkins_home/jobs/ADASS/workspace
+[workspace] $ /bin/sh -xe /tmp/jenkins1749672438918067664.sh
++ export ANSIBLE_HOST_KEY_CHECKING=False
++ cd /var/jenkins_home/jobs/ADASS/workspace
++ ansible-playbook -i envs/development/hosts play.yml --tags=build,deploy -vvv
+Using /etc/ansible/ansible.cfg as config file
+
+PLAYBOOK: play.yml *************************************************************
+1 plays in play.yml
+
+PLAY [ADASS deployment] ********************************************************
+
+TASK [build : Build applications images] ***************************************
+task path: /var/jenkins_home/jobs/ADASS/workspace/roles/build/tasks/main.yml:1
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/commands/command.py
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo ~/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986 `" && echo ansible-tmp-1508523310.28-243590567721986="` echo ~/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986 `" ) && sleep 0'
+<localhost> PUT /tmp/tmpLh3XPP TO /root/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986/command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986/ /root/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986/command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'RELEASE=1.0 STAGE=development /usr/bin/python /root/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986/command.py; rm -rf "/root/.ansible/tmp/ansible-tmp-1508523310.28-243590567721986/" > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true, 
+    "cmd": [
+        "docker-compose", 
+        "build", 
+        "--no-cache"
+    ], 
+    "delta": "0:00:44.668601", 
+    "end": "2017-10-20 18:15:55.097510", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker-compose build --no-cache", 
+            "_uses_shell": false, 
+            "chdir": "./docker", 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "warn": true
+        }, 
+        "module_name": "command"
+    }, 
+    "rc": 0, 
+    "start": "2017-10-20 18:15:10.428909", 
+    "stderr": "redis uses an image, skipping\nBuilding app\nnginx uses an image, skipping", 
+    "stdout": "Step 1/9 : FROM python:3\n ---> 01fd71a97c19\nStep 2/9 : ARG STAGE=development\n ---> Running in 7d6aa339b4f5\n ---> 86e5406b3e2c\nRemoving intermediate container 7d6aa339b4f5\nStep 3/9 : ARG RELEASE=1.0\n ---> Running in 67a6b1a0e601\n ---> 1dc55551a307\nRemoving intermediate container 67a6b1a0e601\nStep 4/9 : WORKDIR /usr/src/app\n ---> 74332bfe4df1\nRemoving intermediate container 75acd67f8f85\nStep 5/9 : RUN pip install pyramid pyramid_jinja2 redis\n ---> Running in 18302fe18564\nCollecting pyramid\n  Downloading pyramid-1.9.1-py2.py3-none-any.whl (582kB)\nCollecting pyramid_jinja2\n  Downloading pyramid_jinja2-2.7-py2.py3-none-any.whl (70kB)\nCollecting redis\n  Downloading redis-2.10.6-py2.py3-none-any.whl (64kB)\nRequirement already satisfied: setuptools in /usr/local/lib/python3.6/site-packages (from pyramid)\nCollecting zope.deprecation>=3.5.0 (from pyramid)\n  Downloading zope.deprecation-4.3.0-py2.py3-none-any.whl\nCollecting WebOb>=1.7.0rc2 (from pyramid)\n  Downloading WebOb-1.7.3-py2.py3-none-any.whl (83kB)\nCollecting zope.interface>=3.8.0 (from pyramid)\n  Downloading zope.interface-4.4.3-cp36-cp36m-manylinux1_x86_64.whl (173kB)\nCollecting plaster (from pyramid)\n  Downloading plaster-1.0-py2.py3-none-any.whl\nCollecting PasteDeploy>=1.5.0 (from pyramid)\n  Downloading PasteDeploy-1.5.2-py2.py3-none-any.whl\nCollecting plaster-pastedeploy (from pyramid)\n  Downloading plaster_pastedeploy-0.4.1-py2.py3-none-any.whl\nCollecting hupper (from pyramid)\n  Downloading hupper-1.0-py2.py3-none-any.whl\nCollecting repoze.lru>=0.4 (from pyramid)\n  Downloading repoze.lru-0.7-py3-none-any.whl\nCollecting translationstring>=0.4 (from pyramid)\n  Downloading translationstring-1.3-py2.py3-none-any.whl\nCollecting venusian>=1.0a3 (from pyramid)\n  Downloading venusian-1.1.0-py2.py3-none-any.whl\nCollecting Jinja2>=2.5.0 (from pyramid_jinja2)\n  Downloading Jinja2-2.9.6-py2.py3-none-any.whl (340kB)\nCollecting MarkupSafe (from pyramid_jinja2)\n  Downloading MarkupSafe-1.0.tar.gz\nBuilding wheels for collected packages: MarkupSafe\n  Running setup.py bdist_wheel for MarkupSafe: started\n  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'\n  Stored in directory: /root/.cache/pip/wheels/88/a7/30/e39a54a87bcbe25308fa3ca64e8ddc75d9b3e5afa21ee32d57\nSuccessfully built MarkupSafe\nInstalling collected packages: zope.deprecation, WebOb, zope.interface, plaster, PasteDeploy, plaster-pastedeploy, hupper, repoze.lru, translationstring, venusian, pyramid, MarkupSafe, Jinja2, pyramid-jinja2, redis\nSuccessfully installed Jinja2-2.9.6 MarkupSafe-1.0 PasteDeploy-1.5.2 WebOb-1.7.3 hupper-1.0 plaster-1.0 plaster-pastedeploy-0.4.1 pyramid-1.9.1 pyramid-jinja2-2.7 redis-2.10.6 repoze.lru-0.7 translationstring-1.3 venusian-1.1.0 zope.deprecation-4.3.0 zope.interface-4.4.3\n ---> 6da114190f68\nRemoving intermediate container 18302fe18564\nStep 6/9 : COPY app /usr/src/app\n ---> cad790e070ac\nStep 7/9 : COPY puppy.jpg /var/puppy.jpg\n ---> 270add7190d8\nStep 8/9 : EXPOSE 8080\n ---> Running in aef81a24c89f\n ---> ccccb52198f6\nRemoving intermediate container aef81a24c89f\nStep 9/9 : CMD python /usr/src/app/app.py\n ---> Running in 18fc0c41dff7\n ---> 44ff2419b412\nRemoving intermediate container 18fc0c41dff7\nSuccessfully built 44ff2419b412\nSuccessfully tagged aaguirre/app:jenk", 
+    "stdout_lines": [
+        "Step 1/9 : FROM python:3", 
+        " ---> 01fd71a97c19", 
+        "Step 2/9 : ARG STAGE=development", 
+        " ---> Running in 7d6aa339b4f5", 
+        " ---> 86e5406b3e2c", 
+        "Removing intermediate container 7d6aa339b4f5", 
+        "Step 3/9 : ARG RELEASE=1.0", 
+        " ---> Running in 67a6b1a0e601", 
+        " ---> 1dc55551a307", 
+        "Removing intermediate container 67a6b1a0e601", 
+        "Step 4/9 : WORKDIR /usr/src/app", 
+        " ---> 74332bfe4df1", 
+        "Removing intermediate container 75acd67f8f85", 
+        "Step 5/9 : RUN pip install pyramid pyramid_jinja2 redis", 
+        " ---> Running in 18302fe18564", 
+        "Collecting pyramid", 
+        "  Downloading pyramid-1.9.1-py2.py3-none-any.whl (582kB)", 
+        "Collecting pyramid_jinja2", 
+        "  Downloading pyramid_jinja2-2.7-py2.py3-none-any.whl (70kB)", 
+        "Collecting redis", 
+        "  Downloading redis-2.10.6-py2.py3-none-any.whl (64kB)", 
+        "Requirement already satisfied: setuptools in /usr/local/lib/python3.6/site-packages (from pyramid)", 
+        "Collecting zope.deprecation>=3.5.0 (from pyramid)", 
+        "  Downloading zope.deprecation-4.3.0-py2.py3-none-any.whl", 
+        "Collecting WebOb>=1.7.0rc2 (from pyramid)", 
+        "  Downloading WebOb-1.7.3-py2.py3-none-any.whl (83kB)", 
+        "Collecting zope.interface>=3.8.0 (from pyramid)", 
+        "  Downloading zope.interface-4.4.3-cp36-cp36m-manylinux1_x86_64.whl (173kB)", 
+        "Collecting plaster (from pyramid)", 
+        "  Downloading plaster-1.0-py2.py3-none-any.whl", 
+        "Collecting PasteDeploy>=1.5.0 (from pyramid)", 
+        "  Downloading PasteDeploy-1.5.2-py2.py3-none-any.whl", 
+        "Collecting plaster-pastedeploy (from pyramid)", 
+        "  Downloading plaster_pastedeploy-0.4.1-py2.py3-none-any.whl", 
+        "Collecting hupper (from pyramid)", 
+        "  Downloading hupper-1.0-py2.py3-none-any.whl", 
+        "Collecting repoze.lru>=0.4 (from pyramid)", 
+        "  Downloading repoze.lru-0.7-py3-none-any.whl", 
+        "Collecting translationstring>=0.4 (from pyramid)", 
+        "  Downloading translationstring-1.3-py2.py3-none-any.whl", 
+        "Collecting venusian>=1.0a3 (from pyramid)", 
+        "  Downloading venusian-1.1.0-py2.py3-none-any.whl", 
+        "Collecting Jinja2>=2.5.0 (from pyramid_jinja2)", 
+        "  Downloading Jinja2-2.9.6-py2.py3-none-any.whl (340kB)", 
+        "Collecting MarkupSafe (from pyramid_jinja2)", 
+        "  Downloading MarkupSafe-1.0.tar.gz", 
+        "Building wheels for collected packages: MarkupSafe", 
+        "  Running setup.py bdist_wheel for MarkupSafe: started", 
+        "  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'", 
+        "  Stored in directory: /root/.cache/pip/wheels/88/a7/30/e39a54a87bcbe25308fa3ca64e8ddc75d9b3e5afa21ee32d57", 
+        "Successfully built MarkupSafe", 
+        "Installing collected packages: zope.deprecation, WebOb, zope.interface, plaster, PasteDeploy, plaster-pastedeploy, hupper, repoze.lru, translationstring, venusian, pyramid, MarkupSafe, Jinja2, pyramid-jinja2, redis", 
+        "Successfully installed Jinja2-2.9.6 MarkupSafe-1.0 PasteDeploy-1.5.2 WebOb-1.7.3 hupper-1.0 plaster-1.0 plaster-pastedeploy-0.4.1 pyramid-1.9.1 pyramid-jinja2-2.7 redis-2.10.6 repoze.lru-0.7 translationstring-1.3 venusian-1.1.0 zope.deprecation-4.3.0 zope.interface-4.4.3", 
+        " ---> 6da114190f68", 
+        "Removing intermediate container 18302fe18564", 
+        "Step 6/9 : COPY app /usr/src/app", 
+        " ---> cad790e070ac", 
+        "Step 7/9 : COPY puppy.jpg /var/puppy.jpg", 
+        " ---> 270add7190d8", 
+        "Step 8/9 : EXPOSE 8080", 
+        " ---> Running in aef81a24c89f", 
+        " ---> ccccb52198f6", 
+        "Removing intermediate container aef81a24c89f", 
+        "Step 9/9 : CMD python /usr/src/app/app.py", 
+        " ---> Running in 18fc0c41dff7", 
+        " ---> 44ff2419b412", 
+        "Removing intermediate container 18fc0c41dff7", 
+        "Successfully built 44ff2419b412", 
+        "Successfully tagged aaguirre/app:jenk"
+    ], 
+    "warnings": []
+}
+
+TASK [deploy : Reset environment] **********************************************
+task path: /var/jenkins_home/jobs/ADASS/workspace/roles/deploy/tasks/main.yml:1
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/commands/command.py
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo ~/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107 `" && echo ansible-tmp-1508523355.15-74934136028107="` echo ~/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107 `" ) && sleep 0'
+<localhost> PUT /tmp/tmpDRcV1W TO /root/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107/command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107/ /root/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107/command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'RELEASE=1.0 STAGE=development /usr/bin/python /root/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107/command.py; rm -rf "/root/.ansible/tmp/ansible-tmp-1508523355.15-74934136028107/" > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true, 
+    "cmd": [
+        "docker-compose", 
+        "down"
+    ], 
+    "delta": "0:00:00.398533", 
+    "end": "2017-10-20 18:15:55.647082", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker-compose down", 
+            "_uses_shell": false, 
+            "chdir": "./docker", 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "warn": true
+        }, 
+        "module_name": "command"
+    }, 
+    "rc": 0, 
+    "start": "2017-10-20 18:15:55.248549", 
+    "stderr": "Removing network docker_default\nNetwork docker_default not found.", 
+    "stdout": "", 
+    "stdout_lines": [], 
+    "warnings": []
+}
+
+TASK [deploy : Deploy containers] **********************************************
+task path: /var/jenkins_home/jobs/ADASS/workspace/roles/deploy/tasks/main.yml:10
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/commands/command.py
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo ~/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015 `" && echo ansible-tmp-1508523355.7-187465833628015="` echo ~/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015 `" ) && sleep 0'
+<localhost> PUT /tmp/tmpaSOFvu TO /root/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015/command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015/ /root/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015/command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'RELEASE=1.0 STAGE=development /usr/bin/python /root/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015/command.py; rm -rf "/root/.ansible/tmp/ansible-tmp-1508523355.7-187465833628015/" > /dev/null 2>&1 && sleep 0'
+fatal: [localhost]: FAILED! => {
+    "changed": true, 
+    "cmd": [
+        "docker-compose", 
+        "up", 
+        "-d"
+    ], 
+    "delta": "0:00:04.044726", 
+    "end": "2017-10-20 18:15:59.832473", 
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker-compose up -d", 
+            "_uses_shell": false, 
+            "chdir": "./docker", 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "warn": true
+        }, 
+        "module_name": "command"
+    }, 
+    "rc": 1, 
+    "start": "2017-10-20 18:15:55.787747", 
+    "stderr": "Creating network \"docker_default\" with driver \"bridge\"\nCreating redis ... \r\nCreating redis\n\u001b[1A\u001b[2K\rCreating redis ... \u001b[32mdone\u001b[0m\r\u001b[1BCreating app ... \r\nCreating app\n\u001b[1A\u001b[2K\rCreating app ... \u001b[32mdone\u001b[0m\r\u001b[1BCreating nginx ... \r\nCreating nginx\n\u001b[1A\u001b[2K\rCreating nginx ... \u001b[31merror\u001b[0m\r\u001b[1B\nERROR: for nginx  Cannot start service nginx: oci runtime error: container_linux.go:265: starting container process caused \"process_linux.go:368: container init caused \\\"rootfs_linux.go:57: mounting \\\\\\\"/Users/aaguirre/Projects/ADASS/tutorial/lab05/nginx.conf\\\\\\\" to rootfs \\\\\\\"/var/lib/docker/overlay/88a23be726dd3b8ea673c6f0e83243199fda62fe5ccf28d2485892f7f3e7b253/merged\\\\\\\" at \\\\\\\"/var/lib/docker/overlay/88a23be726dd3b8ea673c6f0e83243199fda62fe5ccf28d2485892f7f3e7b253/merged/etc/nginx/conf.d/default.conf\\\\\\\" caused \\\\\\\"not a directory\\\\\\\"\\\"\"\n: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type\n\nERROR: for nginx  Cannot start service nginx: oci runtime error: container_linux.go:265: starting container process caused \"process_linux.go:368: container init caused \\\"rootfs_linux.go:57: mounting \\\\\\\"/Users/aaguirre/Projects/ADASS/tutorial/lab05/nginx.conf\\\\\\\" to rootfs \\\\\\\"/var/lib/docker/overlay/88a23be726dd3b8ea673c6f0e83243199fda62fe5ccf28d2485892f7f3e7b253/merged\\\\\\\" at \\\\\\\"/var/lib/docker/overlay/88a23be726dd3b8ea673c6f0e83243199fda62fe5ccf28d2485892f7f3e7b253/merged/etc/nginx/conf.d/default.conf\\\\\\\" caused \\\\\\\"not a directory\\\\\\\"\\\"\"\n: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type\nEncountered errors while bringing up the project.", 
+    "stdout": "", 
+    "stdout_lines": [], 
+    "warnings": []
+}
+	to retry, use: --limit @/var/jenkins_home/jobs/ADASS/workspace/play.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=1   
+
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
