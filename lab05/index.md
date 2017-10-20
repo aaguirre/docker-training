@@ -16,6 +16,27 @@ chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
+                                     
+                       +------------+
+                       |            |
+                       |    NGINX   |
+                       |            |
+                       +------+-----+
+                              |      
+                              |      
+                       +------|-----+
+                       |            |
+                       |    APP     |
+                       |            |
+                       +------+-----+
+                              |      
+                              |      
+                       +------|-----+
+                       |            |
+                       |   Redis    |
+                       |            |
+                       +------------+
+
 Open docker-compose.yml
 
 ```yaml
