@@ -29,6 +29,8 @@ Ansible Project
 
 Install Ansible
 ```bash
+curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python
+
 pip install ansible
 ```
 
