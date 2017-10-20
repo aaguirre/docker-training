@@ -33,6 +33,8 @@ Run the app container
 docker run -d --name my-app -p 8080:8080 --link redis:redis aaguirre/app
 ```
 
+
+Finally, just remove the containers.
 ```
 docker rm -f redis my-app
 ```
