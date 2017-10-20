@@ -3,6 +3,11 @@
 ## Dockerfiles:
 
 
+Clone the Lab's repo
+```
+git clone https://github.com/aaguirre/docker-training.git
+```
+
 ```vim
 FROM python:3
 
