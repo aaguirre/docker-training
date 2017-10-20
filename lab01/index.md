@@ -55,7 +55,7 @@ docker image pull nginx
 
 Run NGINX container 
 ```bash
-docker run --name my-nginx -d -p 8080:80 nginx
+docker run --name my-nginx -d -p 80:80 nginx
 ```
 
 Open browser at: 
