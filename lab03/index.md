@@ -7,11 +7,11 @@ docker image ls
 ```
 
 ```bash
-docker tag app:latest aaguirre/app:blabla
+docker tag app:latest aaguirre/app:2
 ```
 
 ```bash
-docker push aaguirre/app:blabla
+docker push aaguirre/app:2
 ```
 
 ```bash
