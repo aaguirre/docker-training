@@ -43,3 +43,9 @@ ansible-playbook -i envs/development/hosts play.yml --tags="build,deploy"  -vvv
 Go to url:
 
 http://machine-ip:80
+
+
+Shutdown environment
+```bash
+ansible-playbook -i envs/development/hosts play.yml --tags="shutdown"  -vvv
+```
