@@ -2,8 +2,6 @@
 
 ## Docker run:
 
-NGINX <--> *PYTHON* <--> *REDIS*
-
 ```bash 
 docker run -d --name my-app -p 8080:8080 aaguirre/app
 ```
