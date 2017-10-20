@@ -100,3 +100,9 @@ Run docker compose
 docker-compose up -d
 ```
 
+
+Remove all containers
+```
+docker-compose down
+```
+
