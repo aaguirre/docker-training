@@ -135,3 +135,9 @@ Remove Stack
 docker stack rm adass
 ```
 
+
+Leave swarm 
+```
+docker swarm leave --force
+```
+
